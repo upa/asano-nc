@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.rawgit.com/diversen/pandoc-uikit/master/style.css">
+        <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.rawgit.com/diversen/pandoc-uikit/master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.rawgit.com/diversen/pandoc-uikit/master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.rawgit.com/diversen/pandoc-uikit/master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                        <title>index</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                <link rel="stylesheet" href="added.css" />
+                                             
+    </head>
+
+    <body>
+
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+            
+            <div class="uk-grid" data-uk-grid-margin >          
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#asanoシステム"
+                                                        id="toc-asanoシステム">ASANOシステム</a>
+                                                        <ul>
+                                                        <li><a
+                                                        href="#技術移転について"
+                                                        id="toc-技術移転について">技術移転について</a></li>
+                                                        <li><a
+                                                        href="#主な関連論文"
+                                                        id="toc-主な関連論文">主な関連論文</a></li>
+                                                        </ul></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+<h1 id="asanoシステム">ASANOシステム</h1>
+<p>ASANOシステムは、東京大学におけるキャンパスネットワークでの利用を念頭
+に、東京大学 情報基盤センターで開発されたSD-WANのシステムです。ASANOシ
+ステムは、離れた拠点に設置された複数のASANOデバイス間でオーバーレイネッ
+トワークを構成し、任意のデバイス間でVLANを延伸することができます。</p>
+<figure>
+<img src="img/campus-network-example.png" width="500"
+alt="キャンパスネットワークの例" />
+<figcaption
+aria-hidden="true"><strong>キャンパスネットワークの例</strong></figcaption>
+</figure>
+<p>現在の大学のキャンパスは、いくつかのメインキャンパスや、遠隔研究拠点な
+ど、複数の拠点を持つ場合が多くあります。キャンパスネットワークは、こう
+した地理的に分散した複数の拠点へと延伸されなければなりません。</p>
+<p>また、ひとつの組織が複数のキャンパスにまたがっている場合や、ある研究リ
+ソースにアクセスできる限られたセグメントを複数の拠点の研究者が使いたい
+など、結果的にVLANを多拠点にわたって伸ばすケースが多々あります。</p>
+<p>さらに遠隔地の研究拠点では、インターネット越しに、キャンパスネットワー
+クのVLANを延伸しなければなりません。このとき、VLANを伸ばすと同時に、
+NAT越えや、通信の暗号化を行う必要があります。</p>
+<figure>
+<img src="img/asano-example.png" width="500"
+alt="ASANOシステムの利用イメージ" />
+<figcaption
+aria-hidden="true"><strong>ASANOシステムの利用イメージ</strong></figcaption>
+</figure>
+<p>ASANOシステムでは、そうした遠隔研究施設やVLANを伸ばしたい建物、居室な
+どにASANOデバイスを設置し、ASANOデバイス間で自動で構成されるマルチポイ
+ントのオーバーレイネットワークを使って、セキュリティを保ちながらVLANを
+延伸することができます。</p>
+<p>各ASANOデバイスは、オーケストレータによって集中管理されます。ASANOデバ
+イス自身に保存されている設定は、自身のbootに必要な情報、そしてオーケス
+トレータに接続するための情報のみです。それ以外の、例えばどのポートにど
+のVLANを出すか、といった設定は全てオーケストレータ上に存在します。この
+ように複数のASANOデバイスのVLANなどの設定を一元管理することで、設定変
+更などの日々の運用を簡単に行うことができます。</p>
+<p>また、ASANOシステムのオーバーレイは、内部的に<a
+href="https://tools.ietf.org/html/rfc7348">Virtual eXtensible LAN
+(VXLAN)</a>も用いているため、VLANの
+限界である4000個以上のセグメントの作成や、管理上プライベートなVLAN番号
+を使っているセグメントでも、ひとつのASANOシステム上で他の組織のセグメ
+ントと一緒に延伸することができます。</p>
+<h3 id="技術移転について">技術移転について</h3>
+<p>2020年10月、ASANOシステムのライセンス契約を日本ラッド株式会社と締結し、
+商用版のASANOシステムの発売が決まりました。</p>
+<ul>
+<li><a
+href="https://www.itc.u-tokyo.ac.jp/blog/2020/10/06/post-2698/">東京大学
+情報基盤センターのニュースページ</a></li>
+<li><a
+href="https://www.nippon-rad.co.jp/ir/release/data/20201006.pdf">日本ラッド株式会社プレスリリース</a>
+(PDF)</li>
+</ul>
+<h3 id="主な関連論文">主な関連論文</h3>
+<ul>
+<li>中村　遼, 関谷勇司,
+工藤知宏,“オープンソースソフトウェアを用いたキャンパスSD-WANの検討”,
+電子情報通信学会, 信学技報, vol. 117, no.354, IA2017-64, pp. 67–72</li>
+</ul>                    
+                </div>
+            </div>
+
+            <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+        </div>
+    </body>
+</html>
